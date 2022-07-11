@@ -4,7 +4,7 @@
 //
 //  Created by Anıl AVCI on 11.07.2022.
 //
-
+//sayfaının detayını görme
 import UIKit
 import WebKit
 
