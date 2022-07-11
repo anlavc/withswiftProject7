@@ -26,7 +26,6 @@ class ViewController: UITableViewController {
     }
     func parse(json: Data) {
         let decoder = JSONDecoder()
-
         if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
             petitions = jsonPetitions.results
             tableView.reloadData()
@@ -43,6 +42,10 @@ class ViewController: UITableViewController {
         cell.detailTextLabel?.text = petition.body
         return cell
     }
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailViewController()
+            vc.detailItem = petitions[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
